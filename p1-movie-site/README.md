@@ -7,6 +7,8 @@ Projeto server-side para armazenar uma lista de filmes, incluindo cartazes e a U
 > 1) Baixe o aqruivo .zip ou clone o projeto.
 > 2) Abra o terminal do sistema operacional e navegue para a pasta raiz do projeto **nanodegree\p1-movie-site**.
 > 3) Dentro da pasta raiz do projeto  execute o seguinte código:
+
+**Obs**: É necessário ter o Python instalado na máquina, caso voê não o tenha pode fazer o download clicando [aqui](https://www.python.org/downloads/).
 ```
     $ python entertermaint_center.py
 ```
