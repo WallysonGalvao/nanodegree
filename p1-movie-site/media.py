@@ -1,16 +1,25 @@
+# Module responsible for opening a browser.
 import webbrowser
 
 
-class Movie():
+# Creating the Movie class that will provide attributes and behaviors
+class Movie:
     """ This class provides a way to store movie related information """
 
-    VALID_RATINGS = ["G", "PG", "PG-13", "R"]
-
-    def __init__(self, title, storyline, poster_image_url, trailer_youtube_url):
+    # Function that defines the attributes of Movie's class.
+    def __init__(self, title, poster_img_url, trailer_url):
+        """This function will be used for instantiation. The arguments will
+                be stored inside methods that will be used by objects.
+        Args:
+            self: the object itself.
+            title: A string containing the movie's title.
+            poster_img_url: A string containing the URL of a poster.
+            trailer_url: A string containing a URL from a YouTube video.
+        """
         self.title = title
-        self.storyline = storyline
-        self.poster_image_url = poster_image_url
-        self.trailer_youtube_url = trailer_youtube_url
+        self.poster_img_url = poster_img_url
+        self.trailer_url = trailer_url
 
+    # Function responsible for opening the trailer.
     def show_trailer(self):
-        webbrowser.open(self.trailer_youtube_url)
+        webbrowser.open(self.trailer_url)
