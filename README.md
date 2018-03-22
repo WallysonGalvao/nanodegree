@@ -5,3 +5,5 @@ Respositório para os projetos e módulos do curso [Desenvolvedor Web Full-Stack
 ## Projetos:
 
 - **p1-movie-site**: Projeto server-side para armazenar uma lista de filmes, incluindo cartazes e a URL de trailers.
+
+- **p2-site-portfolio**: Mockup em pdf tranformado em uma página web real com HTML e CSS.
