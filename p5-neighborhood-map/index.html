@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="options-box">
+            <h1>Brasília, Distrito Federal</h1>
+            <span class="text"> Selecione um lugar </span>
+            <select onchange="select.call(this)">
+                <option value="1">Esplanada dos Ministérios</option>
+                <option value="2">Palácio do Planalto</option>
+                <option value="3">Congresso Nacional</option>
+                <option value="4">Itamaraty</option>
+                <option value="5">Praça dos Três Poderes</option>
+            </select>
+            <div>
+                <span class="text">Digite para procurars</span>
+                <input id="places-search" type="text" placeholder="Ex: Ceilândia">
+                <input id="go-places" type="button" value="Go">
+            </div>
+        </div>
+        <div id="map"></div>
+    </div>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?libraries=places,geometry,drawing&key=AIzaSyACovl0uCsiglMDxYG4OHEtzX7Q-iIauFg&v=3&callback=initMap"></script>
+    <script type="text/javascript" src="js.js"></script>
+
+</body>
+
+</html>
