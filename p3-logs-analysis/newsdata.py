@@ -61,7 +61,7 @@ def print_results(q_list):
     for i in range(len(q_list)):
         title = q_list[i][0]
         res = q_list[i][1]
-        print("\t" + "%s - %d" % (title, res) + " views")
+        print("\t" + "%s - %d" % (title, res) + " %")
     print("\n")
 
 
