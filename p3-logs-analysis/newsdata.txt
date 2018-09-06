@@ -12,4 +12,4 @@ Who are the most popular article authors of all time?
 
 
 On which days more than 1% of the requests led to error?
-        2016-07-17 - 2 views
+        2016-07-17 - 2 %

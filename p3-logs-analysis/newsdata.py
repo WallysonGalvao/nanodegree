@@ -6,40 +6,53 @@ DBNAME = "news"
 
 request_1 = "What are the most popular articles of all time?"
 
-query_1 = ("SELECT title, count(*) as views FROM articles \n"
-           "  JOIN log\n"
-           "    ON articles.slug = substring(log.path, 10)\n"
-           "    GROUP BY title ORDER BY views DESC LIMIT 3;")
+query_1 = """
+        SELECT title,
+            count(*) AS views
+        FROM articles
+        JOIN log ON articles.slug = substring(log.path, 10)
+        GROUP BY title
+        ORDER BY views DESC
+        LIMIT 3;
+        """
 
 request_2 = "Who are the most popular article authors of all time?"
 
-query_2 = ("SELECT authors.name, count(*) as views\n"
-           "    FROM articles \n"
-           "    JOIN authors\n"
-           "      ON articles.author = authors.id \n"
-           "      JOIN log \n"
-           "      ON articles.slug = substring(log.path, 10)\n"
-           "      WHERE log.status LIKE '200 OK'\n"
-           "      GROUP BY authors.name ORDER BY views DESC;")
+query_2 = """
+        SELECT authors.name,
+            count(*) AS views
+        FROM articles
+        JOIN authors ON articles.author = authors.id
+        JOIN log ON articles.slug = substring(log.path, 10)
+        WHERE log.status LIKE '200 OK'
+        GROUP BY authors.name
+        ORDER BY views DESC;
+        """
 
 request_3 = "On which days more than 1% of the requests led to error?"
 
-query_3 = ("""
-SELECT date(time) as dt,
-(100.0 * error_log.qtd / request_log.qtd) AS perc
-    FROM log
-    JOIN (SELECT date(time) AS de, count(*) AS qtd
-            FROM log WHERE status != '200 OK' GROUP BY de) AS error_log
-    ON date(log.time) = error_log.de
-    JOIN (SELECT date(time) AS ds, count(*) AS qtd
-        FROM log GROUP BY ds) AS request_log
-    ON date(log.time) = request_log.ds
-WHERE ((100.0 * error_log.qtd) / request_log.qtd) > 1.0
-GROUP BY dt, perc;""")
+query_3 = """
+        SELECT date(TIME) AS dt,
+            (100.0 * error_log.qtd / request_log.qtd) AS perc
+        FROM log
+        JOIN
+        (SELECT date(TIME) AS de,
+                count(*) AS qtd
+        FROM log
+        WHERE status != '200 OK'
+        GROUP BY de) AS error_log ON date(log.time) = error_log.de
+        JOIN
+        (SELECT date(TIME) AS ds,
+                count(*) AS qtd
+        FROM log
+        GROUP BY ds) AS request_log ON date(log.time) = request_log.ds
+        WHERE ((100.0 * error_log.qtd) / request_log.qtd) > 1.0
+        GROUP BY dt,
+                perc;
+        """
+
 
 # Connect to the database and feed query to extract results
-
-
 def get_queryResults(sql_query):
     db = psycopg2.connect(database=DBNAME)
     c = db.cursor()
@@ -61,6 +74,14 @@ def print_results(q_list):
     for i in range(len(q_list)):
         title = q_list[i][0]
         res = q_list[i][1]
+        print("\t" + "%s - %d" % (title, res) + " views")
+    print("\n")
+
+
+def print_results_per(q_list):
+    for i in range(len(q_list)):
+        title = q_list[i][0]
+        res = q_list[i][1]
         print("\t" + "%s - %d" % (title, res) + " %")
     print("\n")
 
@@ -70,4 +91,4 @@ print_results(result1)
 print(request_2)
 print_results(result2)
 print(request_3)
-print_results(result3)
+print_results_per(result3)

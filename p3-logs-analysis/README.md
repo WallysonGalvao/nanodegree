@@ -3,6 +3,12 @@
 ## Visão do projeto
 Ferramenta interna de relatórios (internal reporting tool) que usará informações do banco de dados para descobrir de que tipo de artigos os leitores do site gostam.
 
+A ferramenta produz respostas para as três perguntas a seguir com base nos dados do banco de dados:
+
+1. Quais são os três artigos mais populares de todos os tempos?
+2. Quem são os autores de artigos mais populares de todos os tempos?
+3. Em quais dias mais de 1% das requisições resultaram em erros?
+
 ## Configurando a aplicação
 
 ### Requisitos
