@@ -1,0 +1,84 @@
+html, body {
+	height: 100%;
+}
+
+.container {
+	height: 100%;
+}
+
+.row {
+	height: 100%;
+}
+
+/* In a mobile first design, the two divs are stacked along a single column.
+   This implementation is also maintained in portrait orientaion for all devices.
+*/
+.col-list-view {
+	width: 100%;
+	/* Subtract the form height to occupy 100% of container height. */
+	height: calc(35% - 34px);
+	overflow: auto;
+}
+
+.col-map-view {
+	width: 100%;
+	height: 65%;
+}
+
+/* Remove bullet points from the unordered list items. */
+.no-bullets {
+	list-style-type: none;
+}
+
+.list-padding {
+	padding-left: 10px;
+}
+
+.is-selected {
+	color: limegreen;
+}
+
+/* Position the element with class='error-message' at the center of the map div. */
+.error-message {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-right: -50%;
+	transform: translate(-50%, -50%);
+	font-size: medium;
+}
+
+/* In landscape orientation, regardless of the screen size, the list view should take
+   only 25% of the available width. The map view should instead take 75% of it.
+   Add a min-device-width to prevent portrait orientation to become landscape
+   orientation when the keyboard shows up in small devices to type into the input field.
+*/
+@media screen and (min-device-width: 500px) and (orientation: landscape) {
+	.col-list-view {
+		float: left;
+		width: 25%;
+		/* Subtract the form height to occupy 100% of container height. */
+		height: calc(100% - 34px);
+	}
+
+	.col-map-view {
+		float: right;
+		width: 75%;
+		/* Subtract the form height to occupy 100% of container height. */
+		height: calc(100% - 34px);
+	}
+}
+
+/* Adjust the error message font size for small screens. */
+@media screen and (max-device-width: 400px) and (orientation: portrait) {
+	.error-message {
+		font-size: small;
+	}
+}
+
+/* Adjust the error message font size for big screens. */
+@media screen and (min-device-width: 700px){
+	.error-message {
+		font-size: x-large;
+	}
+}

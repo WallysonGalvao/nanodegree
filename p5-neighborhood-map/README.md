@@ -3,11 +3,16 @@
 ## Visão geral do projeto
 Aplicação single-page que apresenta um mapa. Você pode pesquisar por um local ou selecionar um local específico na lista de locais.
 
-## Executando a aplicação
+### Executando
+2. Clone este repositorio
+3. Abra o arquivo index.html
+4. Procure por um restaurente no campo de busca
 
-Para executar a aplicação abra o arquivo index.html no browser. É recomendado que você tenha em seu browser um plugin de [CORS](https://chrome.google.com/webstore/detail/cors/dboaklophljenpcjkbbibpkbpbobnbld).
 
+### Construido com:
 
-## API's
-
-Esse projeto utiliza o [Google Maps API's](https://cloud.google.com/maps-platform/?hl=pt-BR).
+* [Bootstrap](http://getbootstrap.com/) - Framework para desenvolvimento de sites rsponsivos
+* [Knockout](http://knockoutjs.com/) - Uma biblioteca JavaScript que simplifica as UIs dinâmicas do JavaScript
+* [jQuery](http://jquery.com/) - Uma biblioteca JavaScript para manipulação de HTML e manipulação de eventos mais simples
+* [Google Maps API](https://developers.google.com/maps/web/) - Biblioteca do Google Mpas
+* [MediaWikiAPI for Wikipedia](https://www.mediawiki.org/wiki/API:Main_page) - APIusada para fornecer informações quando um local é selecionado

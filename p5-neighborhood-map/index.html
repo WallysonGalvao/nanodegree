@@ -1,33 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <link rel="stylesheet" type="text/css" href="style.css" />
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Mapa do Bairro</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	 crossorigin="anonymous">
+
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <div class="container">
-        <div class="options-box">
-            <h1>Brasília, Distrito Federal</h1>
-            <span class="text"> Selecione um lugar </span>
-            <select onchange="select.call(this)">
-                <option value="1">Esplanada dos Ministérios</option>
-                <option value="2">Palácio do Planalto</option>
-                <option value="3">Congresso Nacional</option>
-                <option value="4">Itamaraty</option>
-                <option value="5">Praça dos Três Poderes</option>
-            </select>
-            <div>
-                <span class="text">Digite para procurars</span>
-                <input id="places-search" type="text" placeholder="Ex: Ceilândia">
-                <input id="go-places" type="button" value="Go">
-            </div>
-        </div>
-        <div id="map"></div>
-    </div>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?libraries=places,geometry,drawing&key=AIzaSyACovl0uCsiglMDxYG4OHEtzX7Q-iIauFg&v=3&callback=initMap"></script>
-    <script type="text/javascript" src="js.js"></script>
+	<div class="container">
+		<main class="row">
 
+			<form class="input-group">
+
+				<span class="input-group-btn">
+					<button class="btn btn-success" data-bind="click: searchPlacesAPI">Procurar</button>
+				</span>
+				<input data-bind="textInput: query" class="form-control" type="text" placeholder="Digite para procucrar...">
+			</form>
+			<aside class="col-list-view">
+
+				<div id="input-list" class="listWrapper">
+					<ul data-bind="template: {name: 'location', foreach: filteredLocations}" class="u-list list-padding"></ul>
+
+					<script type="text/html" id="location">
+						<li data-bind="text: name, click: $parent.selectListPlace, css: {'is-selected': currentSelection}" class="no-bullets"></li>
+						</script>
+				</div>
+			</aside>
+
+			<article class="col-map-view" id="map">
+
+				<div data-bind="text: message, style: fontSizeCSS, visible: isError"></div>
+			</article>
+		</main>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script src="js/lib/knockout-3.4.1.js"></script>
+	<script src="js/app.js"></script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACovl0uCsiglMDxYG4OHEtzX7Q-iIauFg&v=3&libraries=places&callback=initMap"
+	 onerror="googleError()">
+	</script>
+	<!--
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUb435qRJWaoCqtA8885qhZHLmGuLpa7A&libraries=places&callback=initMap"
+	 onerror="googleError()">
+	</script>
+	-->
 </body>
 
 </html>
