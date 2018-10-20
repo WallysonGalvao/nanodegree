@@ -1,0 +1,24 @@
+<html>
+
+
+<head>
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='main.css') }}">
+</head>
+
+<body>
+	{% include "nav.html" %}
+	{% include "flash.html" %}
+
+	<h1> Editar Restaurante </h1>
+	<div class="pane">
+
+		<form action="{{ url_for('editRestaurant',restaurant_id = restaurant.id)}}" method='post'>
+			<p>Nome:</p>
+			<input type='text' size='30' name='name' placeholder='{{restaurant.name }}'>
+			<input type='submit' value='Editar'>
+			<a href='{{url_for('showRestaurants')}}'> Cancelar </a>
+		</form>
+	</div>
+</body>
+
+</html>

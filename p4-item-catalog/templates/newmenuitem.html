@@ -1,0 +1,28 @@
+<html>
+
+<head>
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='main.css') }}">
+</head>
+
+<body>
+  {% include "nav.html" %}
+  {% include "flash.html" %}
+
+  <h1>Novo item do Menu</h1>
+  <div class="pane">
+    <form action="#" method='post'>
+
+      <p>Nome:</p>
+      <input type='text' size='30' name='name'>
+      <p>Descrição:</p>
+      <input type='text' size='30' name='description'>
+      <p>Preco:</p>
+      <input type='text' size='30' name='price'>
+      </br>
+
+      <input type='submit' value='Create'>
+    </form>
+  </div>
+</body>
+
+</html>

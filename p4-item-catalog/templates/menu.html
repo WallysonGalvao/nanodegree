@@ -1,0 +1,32 @@
+<html>
+
+<head>
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='main.css') }}">
+</head>
+
+<body>
+
+  <div class='pane'>
+    <h1>{{restaurant.name}}</h1>
+    {% if items !=[] %}
+    <a href='{{url_for('newMenuItem', restaurant_id = restaurant.id)}}'>Criar novo item</a>
+    <div>
+      {% for i in items %}
+      <p>{{i.name}}</p>
+      <p>{{i.description}}</p>
+      <p>{{i.price}}</p>
+      <a href='{{url_for('editMenuItem', restaurant_id=restaurant.id, menu_id=i.id)}}'>Editar</a>
+      </br>
+      <a href='{{url_for('deleteMenuItem', restaurant_id=restaurant.id, menu_id=i.id)}}'>Deletar</a>
+      </br>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p> Você não tem itens no menu. <p>
+        <a href='{{url_for('newMenuItem', restaurant_id = restaurant.id)}}'>Criar novo item</a>
+        {% endif %}
+
+  </div>
+</body>
+
+</html>
