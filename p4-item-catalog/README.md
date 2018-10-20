@@ -1,5 +1,5 @@
 # Catálogo de Itens
-Crie um aplicativo de menu de restaurante onde os usuários podem adicionar, editar e excluir restaurantes e itens de menu nos restaurantes.
+Aplicativo de menu de restaurante onde os usuários podem adicionar, editar e excluir restaurantes e itens de menu nos restaurantes.
 
 ## Configurando o projeto
 ### Pré-requisitos

@@ -8,4 +8,8 @@ Respositório para os projetos e módulos do curso [Desenvolvedor Web Full-Stack
 
 - **p2-site-portfolio**: Mockup em pdf tranformado em uma página web real com HTML e CSS.
 
+- **p3-logs-analysis**: Ferramenta interna de relatórios.
+
+- **p4-item-catalog**: Aplicativo de menu de restaurante.
+
 - **p5-neighborhood-map**: Single-page utilizando Google Maps API 
