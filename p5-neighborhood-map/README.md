@@ -11,7 +11,6 @@ Aplicação single-page que apresenta um mapa. Você pode pesquisar por um local
 
 ### Construido com:
 
-* [Bootstrap](http://getbootstrap.com/) - Framework para desenvolvimento de sites rsponsivos
 * [Knockout](http://knockoutjs.com/) - Uma biblioteca JavaScript que simplifica as UIs dinâmicas do JavaScript
 * [jQuery](http://jquery.com/) - Uma biblioteca JavaScript para manipulação de HTML e manipulação de eventos mais simples
 * [Google Maps API](https://developers.google.com/maps/web/) - Biblioteca do Google Mpas

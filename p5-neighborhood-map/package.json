@@ -1,0 +1,27 @@
+{
+  "name": "neighborhood-map",
+  "version": "1.0.0",
+  "description": "Aplicação single-page que apresenta um mapa.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WallysonGalvao/nanodegree/tree/master/p5-neighborhood-map.git"
+  },
+  "author": "Wallyson Galvão",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WallysonGalvao/nanodegree/tree/master/p5-neighborhood-map/issues"
+  },
+  "homepage": "https://github.com/WallysonGalvao/nanodegree/tree/master/p5-neighborhood-map#readme",
+  "devDependencies": {
+    "eslint": "^5.7.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0"
+  },
+  "dependencies": {
+    "fetch-jsonp": "^1.1.3"
+  }
+}
