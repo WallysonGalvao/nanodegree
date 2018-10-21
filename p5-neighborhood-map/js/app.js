@@ -128,7 +128,7 @@ function selectRightLocation(marker, locationsPos) {
 	populateInfoWindow(marker, locationsInfoWindow);
 }
 
-function googleError() {
+function mapFail() {
 	viewModel.isError(true);
 	return viewModel.message();
 }
