@@ -21,7 +21,8 @@ APPLICATION_NAME = "Restaurant Menu Application"
 
 # Connect to database
 # engine = create_engine('sqlite:///restaurantmenu.db')
-engine = create_engine('sqlite:///restaurantmenu.db', connect_args={'check_same_thread': False})
+engine = create_engine('sqlite:///restaurantmenu.db',
+                       connect_args={'check_same_thread': False})
 Base.metadata.bind = engine
 
 # Create session
@@ -29,6 +30,8 @@ DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
 # Create anti-forgery state token
+
+
 @app.route('/login')
 def showLogin():
     state = ''.join(random.choice(string.ascii_uppercase + string.digits)
@@ -37,6 +40,8 @@ def showLogin():
     return render_template('login.html', STATE=state)
 
 # GConnect
+
+
 @app.route('/gconnect', methods=['POST'])
 def gconnect():
     # Validate state token
@@ -213,6 +218,8 @@ def showRestaurants():
     return render_template('restaurants.html', restaurants=restaurants)
 
 # Create new restaurant
+
+
 @app.route('/restaurants/new/', methods=['GET', 'POST'])
 def newRestaurant():
     if 'username' not in login_session:
@@ -226,6 +233,8 @@ def newRestaurant():
         return render_template('newRestaurant.html')
 
 # Edit restaurant
+
+
 @app.route('/restaurants/<int:restaurant_id>/edit/', methods=['GET', 'POST'])
 def editRestaurant(restaurant_id):
     editedRestaurant = session.query(
@@ -244,6 +253,8 @@ def editRestaurant(restaurant_id):
                                restaurant=editedRestaurant)
 
 # Delet restaurant
+
+
 @app.route('/restaurants/<int:restaurant_id>/delete/', methods=['GET', 'POST'])
 def deleteRestaurant(restaurant_id):
     restaurantToDelete = session.query(
@@ -262,6 +273,8 @@ def deleteRestaurant(restaurant_id):
                                restaurant=restaurantToDelete)
 
 # Show restaurant menu
+
+
 @app.route('/restaurants/<int:restaurant_id>/')
 @app.route('/restaurants/<int:restaurant_id>/menu/')
 def restaurantMenu(restaurant_id):
@@ -271,6 +284,8 @@ def restaurantMenu(restaurant_id):
     return render_template('menu.html', restaurant=restaurant, items=items)
 
 # Create new menu item
+
+
 @app.route(
     '/restaurants/<int:restaurant_id>/menu/new/', methods=['GET', 'POST'])
 def newMenuItem(restaurant_id):
@@ -293,6 +308,8 @@ def newMenuItem(restaurant_id):
     return render_template('newMenuItem.html', restaurant=restaurant)
 
 # Editar menu item
+
+
 @app.route('/restaurants/<int:restaurant_id>/<int:menu_id>/edit/',
            methods=['GET', 'POST'])
 def editMenuItem(restaurant_id, menu_id):
@@ -317,6 +334,8 @@ def editMenuItem(restaurant_id, menu_id):
             menu_id=menu_id, item=editedItem)
 
 # Deletar menu item
+
+
 @app.route('/restaurants/<int:restaurant_id>/<int:menu_id>/delete/',
            methods=['GET', 'POST'])
 def deleteMenuItem(restaurant_id, menu_id):
@@ -330,6 +349,7 @@ def deleteMenuItem(restaurant_id, menu_id):
         return redirect(url_for('restaurantMenu', restaurant_id=restaurant_id))
     else:
         return render_template('deleteMenuItem.html', item=itemToDelete)
+
 
 # end of file
 if __name__ == '__main__':
