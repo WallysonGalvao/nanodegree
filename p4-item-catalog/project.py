@@ -292,7 +292,7 @@ def newMenuItem(restaurant_id):
     if 'username' not in login_session:
         return redirect('/login')
 
-        #session = connect_to_database()
+        # session = connect_to_database()
 
     if request.method == 'POST':
         newItem = MenuItem(name=request.form['name'],
