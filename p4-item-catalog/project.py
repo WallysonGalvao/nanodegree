@@ -20,7 +20,6 @@ CLIENT_ID = json.loads(
 APPLICATION_NAME = "Restaurant Menu Application"
 
 # Connect to database
-# engine = create_engine('sqlite:///restaurantmenu.db')
 engine = create_engine('sqlite:///restaurantmenu.db',
                        connect_args={'check_same_thread': False})
 Base.metadata.bind = engine
@@ -40,8 +39,6 @@ def showLogin():
     return render_template('login.html', STATE=state)
 
 # GConnect
-
-
 @app.route('/gconnect', methods=['POST'])
 def gconnect():
     # Validate state token
@@ -125,7 +122,7 @@ def gconnect():
     login_session['user_id'] = user_id
 
     output = ''
-    output += '<h1>Bem-Vindo(a), '
+    output += '<h1>Bem Vindo, '
     output += login_session['username']
     output += '!</h1>'
     output += '<img src="'
@@ -134,7 +131,6 @@ def gconnect():
     flash("você está logado como %s" % login_session['username'])
     return output
     # User Helper Functions
-
 
 def createUser(login_session):
     newUser = User(name=login_session['username'], email=login_session[
@@ -220,21 +216,6 @@ def showRestaurants():
 # Create new restaurant
 
 
-'''
-@app.route('/restaurants/new/', methods=['GET', 'POST'])
-def newRestaurant():
-    if 'username' not in login_session:
-        return redirect('/login')
-    if request.method == 'POST':
-        newRestaurant = Restaurant(name=request.form['name'])
-        session.add(newRestaurant)
-        session.commit()
-        return redirect(url_for('showRestaurants'))
-    else:
-        return render_template('newRestaurant.html')
-'''
-
-
 @app.route('/restaurants/new/', methods=['GET', 'POST'])
 def newRestaurant():
     if 'username' not in login_session:
@@ -310,14 +291,13 @@ def newMenuItem(restaurant_id):
     if 'username' not in login_session:
         return redirect('/login')
 
-        # session = connect_to_database()
+        session = connect_to_database()
 
     if request.method == 'POST':
         newItem = MenuItem(name=request.form['name'],
                            description=request.form['description'],
                            price=request.form['price'],
                            restaurant_id=restaurant_id,
-                           # user_id=restaurant.user_id
                            user_id=login_session['user_id'])
         session.add(newItem)
         session.commit()
@@ -346,8 +326,6 @@ def editMenuItem(restaurant_id, menu_id):
             editedItem.description = request.form['description']
         if request.form['price']:
             editedItem.price = request.form['price']
-        if request.form['course']:
-            editedItem.course = request.form['course']
         session.add(editedItem)
         session.commit()
         flash("Item de menu foi editado")
