@@ -13,3 +13,5 @@ Respositório para os projetos e módulos do curso [Desenvolvedor Web Full-Stack
 - **p4-item-catalog**: Aplicativo de menu de restaurante.
 
 - **p5-neighborhood-map**: Single-page utilizando Google Maps API 
+
+- **p6-server-config**: Servidor Linux servindo uma aplicação web em Python.
