@@ -8,6 +8,9 @@ Porta SSH: 2200
 
 URL: http://ec2-52-72-134-132.compute-1.amazonaws.com
 
+
+![Acesso](https://github.com/WallysonGalvao/nanodegree/blob/master/p6-server-config/SNAG-0114.png)
+
 ## Gerenciamento de usuários
 
 ### Dê acesso a grader
